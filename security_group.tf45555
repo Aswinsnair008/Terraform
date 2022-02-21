@@ -1,0 +1,16 @@
+resource "aws_security_group" "allow_icmp" {
+  vpc_id      = aws_vpc.new_vpc.id
+  
+
+  ingress {
+    description      = "ICMP from VPC"
+    from_port        = 0-6000
+    to_port          = 0-6000
+    protocol         = "ICMP"
+    }
+
+  tags = {
+    Name = "allow_ICMP"
+  }
+}
+
